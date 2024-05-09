@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Deploy') {
-	    { skip 'Skipping Deploy Stage'
+	    { skip 'Skipping Deploy Stage' }
 	}
 
   

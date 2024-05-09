@@ -33,10 +33,9 @@ pipeline {
         }
 
         stage('Deploy') {
+	    skip 'Skipping Deploy Stage'
+	}
 
-	                when{
-                expression {params.SKIP_DEPLOY == 'true' }
-                }
   
 	      steps {
 
@@ -53,7 +52,3 @@ pipeline {
         }
 
     }
-	parameters {booleanParam(defaultValue: false, description: 'Skip deploy stage', name: 'SKIP_DEPLOY')
-}
-
-}

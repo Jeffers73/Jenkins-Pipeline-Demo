@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Deploy') {
-	    skip 'Skipping Deploy Stage'
+	    { skip 'Skipping Deploy Stage'
 	}
 
   
@@ -46,8 +46,6 @@ pipeline {
                 sh 'mv testfile.txt /tmp'
 
                 sh 'ls -l /tmp'
-
-            }
 
         }
 

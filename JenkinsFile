@@ -1,55 +1,29 @@
-pipeline {
+pipeline{
 
-    agent any
+  agent any
 
-    stages {
+  stages{
 
-        stage('Build') {
+    stage('Make directory'){
 
-            steps {
+      steps{
 
-                sh 'echo "Building..."'
+        sh "mkdir ~/jenkins-tutorial-test || true"
 
-                sh 'ls -al'
-
-            }
-
-        }
-
-        stage('Test') {
-
-            steps {
-
-                sh 'echo "Testing..."'
-
-                sh 'pwd'
-
-                sh 'touch testfile.txt'
-
-                sh 'ls -l'
-
-            }
-
-        }
-
-        stage('Deploy') {
-
-            steps {
-
-                sh 'cat ./deploy.sh'
-
-                sh 'echo "Deploying..."'
-
-                sh 'mv testfile.txt /tmp'
-
-                sh 'ls -l /tmp'
-
-            }
-
-        }
+      }
 
     }
 
+    stage('make files'){
+
+      steps{
+
+        sh "touch ~/jenkins-tutorial-test/file1"
+
+      }
+
+    }
+
+  }
+
 }
-
-

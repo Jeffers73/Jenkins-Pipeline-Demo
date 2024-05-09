@@ -34,7 +34,11 @@ pipeline {
 
         stage('Deploy') {
 
-            steps {
+	    when{
+		expression {params.SKIP_DEPLOY == 'true' }
+		}
+   
+	      steps {
 
                 sh 'cat ./deploy.sh'
 
@@ -49,5 +53,7 @@ pipeline {
         }
 
     }
+	parameters {booleanParam(defaultValue: false. description: 'Skip deploy stage', name: 'SKIP_DEPLOY')
+}
 
 }
